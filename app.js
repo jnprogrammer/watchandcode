@@ -36,6 +36,20 @@ var todoList = {
     var todo = this.todos[pos];
     todo.completed = !todo.completed;
     this.displayTodos();
+  },
+  toggleAll:function(){
+    var totalTodos = this.todos.length, completedTodos = 0;
+
+    for(var i = 0; i < totalTodos; i++){
+      if(this.todos[i].completed === true){
+        completedTodos++;
+      }
+    }
+    if(completedTodos === totalTodos){
+      for(var i = 0; i < totalTodos; i++){
+        this.todos[i].completed = false; 
+      }
+    }
   }
   
 };
