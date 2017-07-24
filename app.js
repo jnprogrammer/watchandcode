@@ -3,6 +3,7 @@
 var todoList = {
   todos: [],
   displayTodos:function(){
+    
     if(this.todos.length === 0){
       console.log("Your todo list is empty")
     }else{
@@ -61,17 +62,34 @@ var todoList = {
 
 };
 
-// 1. We want to access the display todos button
 
-var displayTodosButton = document.getElementById('displayTodosButton');
-var toggleAllButton = document.getElementById('toggleAllBtn');
-console.log(displayTodosButton);
-
-// 2. we want to run displayTodos when diplay todos button is pressed
-displayTodosButton.addEventListener('click',function(){
+var handlers = {
+  displayTodos:function(){
   todoList.displayTodos();
-});
-
-toggleAllButton.addEventListener('click',function(){
+  },
+  addTodo:function(){
+  var addTodoTextInput = document.getElementById('addTodoTextInput');
+  todoList.addTodo(addTodoTextInput.value);
+  addTodoTextInput.value = '';
+  },
+  changeTodo:function(){
+    var changeTodoPositionInput = document.getElementById("changeTodoPositionInput");
+    var changeTodoTextInput = document.getElementById("changeTodoTextInput");
+    todoList.changeTodo(changeTodoPositionInput.valueAsNumber,changeTodoTextInput.value);
+    changeTodoPositionInput.value='';
+    changeTodoTextInput.value ='';
+  },
+  deleteTodo:function(){
+    var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
+    todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
+    deleteTodoPositionInput.value = '';
+  },
+  toggleCompleted: function(){
+    var toggleCompletedPositionInput = document.getElementById("toggleCompletedPositionInput");
+    todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    toggleCompletedPositionInput.value = '';
+  },
+  toggleAll:function(){
   todoList.toggleAll();
-});
+  }
+};
