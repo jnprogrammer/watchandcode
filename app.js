@@ -57,6 +57,21 @@ var todoList = {
       }
     }
     this.displayTodos();
-  },
+  }
 
 };
+
+// 1. We want to access the display todos button
+
+var displayTodosButton = document.getElementById('displayTodosButton');
+var toggleAllButton = document.getElementById('toggleAllBtn');
+console.log(displayTodosButton);
+
+// 2. we want to run displayTodos when diplay todos button is pressed
+displayTodosButton.addEventListener('click',function(){
+  todoList.displayTodos();
+});
+
+toggleAllButton.addEventListener('click',function(){
+  todoList.toggleAll();
+});
