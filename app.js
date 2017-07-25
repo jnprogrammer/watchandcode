@@ -21,28 +21,30 @@ var todoList = {
     todo.completed = !todo.completed;
   },
   toggleAll:function(){
-    var totalTodos = this.todos.length, completedTodos = 0;
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
 
-    for(var i = 0; i < totalTodos; i++){
-      if(this.todos[i].completed === true){
+    //Get num of completed todos.
+
+    this.todos.forEach(function(todo){
+      if(todo.completed === true){
         completedTodos++;
       }
-    }
+    });
     //case 1: if everything is true than toggle to false.
-    if(completedTodos === totalTodos){
-      for(var i = 0; i < totalTodos; i++){
-        this.todos[i].completed = false; 
-      }
+    //refactored
+
+    this.todos.forEach(function(todo){
+      if(completedTodos === totalTodos){
+        todo.completed = false;
   //case 2: Otherwise, make everything true;
-    }else{
-      for(var i = 0; i < totalTodos; i++){
-        this.todos[i].completed = true;
+      }else{
+        todo.completed = true;
       }
-    }
+    });
   }
 
 };
-
 var handlers = {
   addTodo:function(){
   var addTodoTextInput = document.getElementById('addTodoTextInput');
