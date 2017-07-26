@@ -80,11 +80,10 @@ var view = {
   displayTodos: function(){
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
-    for(var i = 0; i < todoList.todos.length;i++){
-      var todoLi = document.createElement('li');
-      var todo = todoList.todos[i];
+    todoList.todos.forEach(function(todo,pos){
+      var todoLi = document.createElement('li');      
       var todoTextWithCompletion = '';
-     
+
       if(todo.completed === true){
         todoTextWithCompletion = '(x) ' + 
         todo.todoText;
@@ -92,11 +91,12 @@ var view = {
         todoTextWithCompletion = '( ) ' + 
         todo.todoText;
       }
-      todoLi.id = i;
+
+      todoLi.id = pos;
       todoLi.textContent = todoTextWithCompletion;
       todoLi.appendChild(this.createDeleteButton());
       todosUl.appendChild(todoLi);
-      }
+    },this);
   },
   createDeleteButton: function(){
     var deleteButton = document.createElement('button');
