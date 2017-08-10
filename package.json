@@ -1,0 +1,23 @@
+{
+  "name": "jsc",
+  "version": "1.0.0",
+  "description": "My javascript project",
+  "main": "Todo_list.js",
+  "dependencies": {
+    "autocomplete": "0.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnprogrammer/watchandcode.git"
+  },
+  "author": "Joshua Parker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnprogrammer/watchandcode/issues"
+  },
+  "homepage": "https://github.com/jnprogrammer/watchandcode#readme"
+}
